@@ -1,6 +1,6 @@
 const express = require('express');
 const {connectToMongoDB}=require('./connect');
-const fs=require('fs');
+const URL=require('./models/url');
 const app=express();
 const urlRoute=require('./routes/url');
 const PORT=8000;
@@ -14,8 +14,18 @@ connectToMongoDB('mongodb://localhost:27017/url-shortner').then(()=>{
 app.use(express.json());
 app.use('/url',urlRoute);
 
-app.get('/u',(req,res)=>{
-    res.send('no was thre');
+app.get('/:shortId', async(req,res)=>{
+    const shortId=req.params.shortId;
+    const entry= await URL.findOneAndUpdate({
+        shortId
+    },{$push:{
+        visitHistory:{
+            timestamp:Date.now(),
+        },
+    },
+})
+    res.redirect(entry.redirectURL);
+   
 })
 
 app.listen(PORT,()=>{
