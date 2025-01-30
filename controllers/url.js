@@ -3,7 +3,7 @@ const shortid=require('shortid')
 
 async function handleGenerateNewShortUrl(req,res){
     const body=req.body;
-    if(!req.body){
+    if(!body){
         return res.status(400).json({error:"url required"})
     }
     const shortId=shortid();
