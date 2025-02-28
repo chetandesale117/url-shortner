@@ -179,7 +179,7 @@
         <p>URL Generated: http://localhost:8000/<%= id %></p>
         <button class="copy-btn" data-copy="http://localhost:8000/<%= id %>">Copy</button>
         <button class="search-btn" onclick="searchShortUrl('<%= id %>')">Search</button>
-        <button onclick="window.history.back()">Go Back</button>
+        <button class="search-btn" onclick="window.history.back()">Go Back</button>
     <% } %>
     <div>
         <form method="POST" action="/url">
