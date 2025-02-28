@@ -3,7 +3,7 @@ const shortid=require('shortid')
 
 async function handleGenerateNewShortUrl(req,res){
     const body=req.body;
-    if(!body){
+    if(!body.url){
         return res.status(400).json({error:"url required"})
     }
     const shortId=shortid();
@@ -12,6 +12,7 @@ async function handleGenerateNewShortUrl(req,res){
         shortId:shortId,
         redirectURL:body.url,
         visitHistory:[],
+        createdBy:req.user._id,
     })
     return res.render('home',{
         id:shortId,
