@@ -19,6 +19,7 @@ connectToMongoDB(process.env.MONGODB_URL).then(()=>{
 })
 
 app.set("view engine","ejs");
+app.use(express.static(path.join(__dirname, 'public')));
 app.set("views", path.resolve("./views"));
 
 app.use(express.json());

@@ -2,8 +2,8 @@
 require("dotenv").config();
 const mongoose=require('mongoose');
 
-async function connectToMongoDB(url) {
-    return mongoose.connect(url);
+async function connectToMongoDB(uri) {
+    return mongoose.connect(uri);
 }
 
 module.exports={

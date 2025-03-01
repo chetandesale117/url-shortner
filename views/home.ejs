@@ -4,180 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            background: #fff;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        form {
-            margin: 0;
-        }
-
-        input[type="text"] {
-            width: 50%;
-            padding: 10px;
-            font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        input[type="text"]:focus {
-            border-color: #6a11cb;
-            box-shadow: 0 0 8px rgba(106, 17, 203, 0.5);
-            outline: none;
-        }
-
-        input[type="text"]::placeholder {
-            color: #aaa;
-            font-style: italic;
-        }
-
-        table {
-            width: 90%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        thead {
-            background: linear-gradient(90deg, #7003e6, #0b58dc);
-            color: rgb(9, 7, 7);
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #ddd;
-            font-size: 14px;
-        }
-
-        th {
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 0.05em;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr:nth-child(odd) {
-            background-color: #ffffff;
-        }
-
-        tr:hover {
-            background-color: #f1f5ff;
-            transform: scale(1.01);
-            transition: all 0.2s ease-in-out;
-        }
-
-        td {
-            color: #555;
-            font-size: 14px;
-        }
-
-        a {
-            text-decoration: none;
-            color: #2575fc;
-            font-weight: bold;
-        }
-
-        .n-btn {
-            background: linear-gradient(90deg, #ff7eb3, #ff758c);
-            color: white;
-            font-weight: bold;
-            border: none;
-            border-radius: 25px;
-            padding: 8px 16px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .n-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .n-btn:active {
-            transform: scale(1);
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-        }
-        .copy-btn {
-            background-color: #4CAF50; /* Green */
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            margin-left: 10px;
-        }
-    
-        .copy-btn:hover {
-            background-color: #45a049;
-        }
-        .search-btn {
-            background-color: #2196F3; 
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            margin-left: 10px;
-        }
-    
-        .search-btn:hover {
-            background-color: #0b7dda;
-        }
-    </style>
-
+   
 <body>
+    <section>
+        <nav>
+            <div class="nav-container">
+                <a href="#" class="nav-logo">url-shortner</a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/signup">SignUP</a></li>
+                    <li><a href="/login">Login</a></li>
+                  
+                </ul>
+            </div>
+        </nav>
+    </section>
 
     <h1>URL Shortner</h1>
     <% if (locals.id) { %>
-        <p>URL Generated: http://localhost:8000/<%= id %></p>
-        <button class="copy-btn" data-copy="http://localhost:8000/<%= id %>">Copy</button>
+        <p>URL Generated: https://url-shortner-6hyy.onrender.com/<%= id %></p>
+        <button class="copy-btn" data-copy="https://url-shortner-6hyy.onrender.com/<%= id %>">Copy</button>
         <button class="search-btn" onclick="searchShortUrl('<%= id %>')">Search</button>
         <button class="search-btn" onclick="window.history.back()">Go Back</button>
     <% } %>
@@ -221,8 +69,8 @@
                 <% urls.forEach((url) => { %>
                     <li>
                         <a href="<%= url.redirectURL %>" target="_blank"><%= url.redirectURL %></a>
-                        - Short ID: http://localhost:8000/<%= url.shortId %>
-                        <button class="copy-btn" data-copy="http://localhost:8000/<%= url.shortId %>">Copy</button>
+                        - Short ID: https://url-shortner-6hyy.onrender.com/<%= url.shortId %>
+                        <button class="copy-btn" data-copy="https://url-shortner-6hyy.onrender.com/<%= url.shortId %>">Copy</button>
                         <button class="search-btn" onclick="searchShortUrl('<%= url.shortId %>')">Search</button>
                         <form method="POST" action="/delete/<%= url._id %>" style="display:inline;">
                             <button class="n-btn" type="submit">Delete</button>
