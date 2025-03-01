@@ -15,6 +15,7 @@ const PORT=process.env.PORT;
 
 connectToMongoDB(process.env.MONGODB_URL).then(()=>{
     console.log("mongodb connected");
+    console.log(process.env.MONGODB_URL)
 })
 
 app.set("view engine","ejs");
